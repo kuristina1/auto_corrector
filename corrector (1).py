@@ -5,12 +5,13 @@ from tkinter import *
 
 with open("bidata.txt", encoding="utf-8") as f:
     big = f.read()
-    pattern = "\.|\,|\?|\!|\-|\–|\«|\»"
-    big2 = re.sub(pattern, "", big)
-
-
+    
     # токенизируем
-    tokens = nltk.word_tokenize(big2)
+    
+    def token(text):
+        return re.findall(r'[а-я]+', text.lower())
+
+    tokens = token(big)
 
 
     word_counter = Counter(tokens)
@@ -85,11 +86,6 @@ with open("bidata.txt", encoding="utf-8") as f:
         return d
 
         # Еще один вариант исхода функции - return "Возможно вы имели в виду: " + str(candidates)
-
-
-
-    def token(text):
-        return re.findall(r'[а-я]+', text.lower())
 
 
     def correct_repeat(text):
