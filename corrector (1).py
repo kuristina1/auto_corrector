@@ -5,8 +5,7 @@ from tkinter import *
 
 with open("bidata.txt", encoding="utf-8") as f:
     big = f.read()
-    pattern = "\.|\,|\?|\!|\-|\–|\«|\»"
-    big2 = re.sub(pattern, "", big)
+
 
 
     # токенизируем
